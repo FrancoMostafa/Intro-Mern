@@ -1,13 +1,10 @@
 require(`dotenv`).config();
 
-const express = require(`express`);
+const app = require(`./app`);
 
 const connectDb = require(`./db/mongodb`);
 
 const { appConfig, dbConfig } = require(`./config`);
-const { connect } = require("mongoose");
-
-const app = express();
 
 async function initApp(appConfig, dbConfig) {
   try {
