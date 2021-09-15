@@ -10,16 +10,16 @@ async function addProduct(req, res) {
       unitaryPrice,
       description,
     });
-
-    if (req.product) {
+    if (req.file) {
       const { filename } = req.file;
       product.setImgUrl(filename);
     }
 
     const productStored = await product.save();
-    res.statusCode(201).send({ productStored });
+    res.status(201).send({ productStored });
   } catch (e) {
-    res.statusCode(500).send({ message: e.message });
+    console.log(e);
+    res.status(500).send({ message: e.message });
   }
 }
 
